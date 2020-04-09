@@ -5,19 +5,19 @@ module.exports = function (grunt) {
       options: {
         htmlhintrc: '.htmlhintrc'
       },
-      src: ['*.html', './file/**/*.html']
+      src: ['*.html', './style/**/*.html']
     },
     csslint: {
       options: {
         csslintrc: '.csslintrc'
       },
-      src: ['./css/*.css', './file/**/*.css']
+      src: ['./css/*.css', './style/**/*.css']
     },
     eslint: {
       options: {
         configFile: '.eslintrc.json'
       },
-      target: ['./js/*.js', './file/**/*.js']
+      target: ['./js/*.js', './style/**/*.js']
     },
     htmlmin: {
       options: {
@@ -37,11 +37,11 @@ module.exports = function (grunt) {
     },
     concat: {
       js: {
-        src: ['js/*.js', './file/**/*.js'],
+        src: ['js/*.js', './style/**/*.js'],
         dest: 'dist/bundle.js'
       },
       css: {
-        src: ['css/*.css', './file/**/*.css'],
+        src: ['css/*.css', './style/**/*.css'],
         dest: 'dist/bundle.css'
       }
     },
