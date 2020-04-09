@@ -1,14 +1,14 @@
-var np = {};                // Notepad 主程序对象
+var np = {};
 
 np.config = {
     'appContainer': '.notepad-app'
 };
 
-np.bShowStatusBar = false;   // 是否显示状态栏
-np.bWrap = false;   // 是否换行
-np.fontFamily = 'Arial'; // 默认字体
-np.fontStype = '常规';  // 默认字体样式
-np.fontSize = '16';    // 默认字体大小：16pt
+np.bShowStatusBar = false;
+np.bWrap = false;
+np.fontFamily = 'Arial';
+np.fontStype = '常规';
+np.fontSize = '16';
 
 np.fontHandler = function (e) {
     np.fontFamily = e.family;
@@ -18,7 +18,6 @@ np.fontHandler = function (e) {
     $editor.setFont(e);
 };
 
-/* global $menubar $editor : true */
 $(function () {
     $menubar.show(np.menuData);
     $editor.show({
