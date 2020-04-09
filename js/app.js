@@ -1,43 +1,21 @@
 var np = {};
-
-np.config = {
-    'appContainer': '.notepad-app'
-};
-
-np.bShowStatusBar = false;
-np.bWrap = false;
+np.wrap = true;
 np.fontFamily = 'Arial';
-np.fontStype = '常规';
+np.fontStyle = '常规';
 np.fontSize = '16';
-
-np.fontHandler = function (e) {
-    np.fontFamily = e.family;
-    np.fontStype = e.style;
-    np.fontSize = e.size;
-
-    $editor.setFont(e);
+np.fontHandler = function (a) {
+  np.fontFamily = a.family;
+  np.fontStyle = a.style;
+  np.fontSize = a.size;
 };
-
 $(function () {
-    $menubar.show(np.menuData);
-    $editor.show({
-        posHandler: function (row, col) {
+  var $body = $('body');
+  var menubar = new Menubar(np.menuData);
+  var editor = new Editor(np);
+  $body.click(function () {
+    editor.setFont(np);
+    menubar.hideMenu();
+    editor.focus();
+  });
 
-        },
-        contentHandler: function (isEmpty) {
-            $menubar.enabled(1, 6, isEmpty);
-        }
-    });
-    $editor.setFont({
-        family: np.fontFamily,
-        style: np.fontStype,
-        size: np.fontSize
-    });
-
-    var $app = $('body');
-
-    $app.click(function () {
-        $menubar.hideMenu();
-        $editor.focus();
-    });
 });
